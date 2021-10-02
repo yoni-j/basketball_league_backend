@@ -32,7 +32,7 @@ Using postgres. You need to set up a user,
     ```
     CREATE DATABASE league_backend_db;
     CREATE USER league_backend_user WITH PASSWORD 'league_backend_pass';
-    ALTER ROLE hamirdaf_backend_user SET client_encoding TO 'utf8';
+    ALTER ROLE league_backend_user SET client_encoding TO 'utf8';
     GRANT ALL PRIVILEGES ON DATABASE league_backend_db TO league_backend_user;       
    ```
    * to exit postgres cli:   
@@ -49,8 +49,13 @@ Using postgres. You need to set up a user,
     ```
     poetry run python manage.py createsuperuser 
    ```
+   
+6. Run management command to setup data
+    ```
+    poetry run python manage.py base_setup 
+   ```
 
-6. Run the server
+8. Run the server
     ```
    poetry run python manage.py runserver
    ```
