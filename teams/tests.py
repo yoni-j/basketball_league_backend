@@ -28,7 +28,7 @@ class PlayersApiTestCase(BaseApiTestCase):
         url = reverse('players')
         response = self.client.get(url)
         content = json.loads(response.content)
-        self.assertEqual(content[0], {"user": "player1_Team1", "height": 191})
+        self.assertEqual(content[0]["user"], "player1_Team1")
 
     def test_player_details(self):
         url = reverse('players', args=[self.player.pk])

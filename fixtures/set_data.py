@@ -62,13 +62,16 @@ def create_players(team):
     users = []
     players = []
     for i in range(1, 10):
-        user = User(username=f"player{i}_{team.name}", password="playerpassword")
+        user = User(username=f"player{i}_{team.name}")
+        user.set_password("playerpassword")
         users.append(user)
         players.append(Player(user=user, team=team, height=190 + i))
     return users, players
 
 def create_coach(team):
-    user = User.objects.create(username=f"coach_{team.name}", password="coachpass")
+    user = User(username=f"coach_{team.name}")
+    user.set_password("coachpassword")
+    user.save()
     Coach.objects.create(user=user, team=team)
 
 

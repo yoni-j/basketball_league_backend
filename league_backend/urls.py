@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from league_backend.obtain_token import CustomTokenObtainPairView
 
 admin.site.site_header = "league_backend admin site"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-token-auth/', TokenObtainPairView.as_view(), name='api-token-obtain-pair'),
+    path('api-token-auth/', CustomTokenObtainPairView.as_view(), name='api-token-obtain-pair'),
     path('api-token-refresh/', TokenRefreshView.as_view(), name='api-token-refresh'),
     path('', include('teams.urls')),
     path('', include('league.urls')),
